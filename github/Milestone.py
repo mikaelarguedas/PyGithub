@@ -178,7 +178,7 @@ class Milestone(github.GithubObject.CompletableGithubObject):
         if description is not github.GithubObject.NotSet:
             post_parameters["description"] = description
         if due_on is not github.GithubObject.NotSet:
-            post_parameters["due_on"] = due_on.strftime("%Y-%m-%d")
+            post_parameters["due_on"] = due_on.strftime("%Y-%m-%dT%H:%M:%SZ")
         headers, data = self._requester.requestJsonAndCheck(
             "PATCH",
             self.url,
